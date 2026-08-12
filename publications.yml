@@ -1,0 +1,35 @@
+# Add one block per paper. Order here = order on the page (put newest first).
+# `links` is optional; add as many as you like (PDF, arXiv, Code, Slides, Poster, DOI...).
+
+- title: "The full title of your first paper goes here"
+  authors: "Your Name, A. Collaborator, B. Advisor"
+  venue: "NeurIPS"
+  year: 2025
+  summary: "One or two sentences describing what the paper does and why it matters."
+  links:
+    - label: "PDF"
+      url: "#"
+    - label: "arXiv"
+      url: "#"
+    - label: "Code"
+      url: "#"
+
+- title: "A second paper with a slightly longer descriptive title"
+  authors: "C. Coauthor, Your Name, D. Advisor"
+  venue: "Journal of Something"
+  year: 2024
+  summary: "A short summary. Keep it to a couple of lines so the cards stay even."
+  links:
+    - label: "PDF"
+      url: "#"
+    - label: "DOI"
+      url: "#"
+
+- title: "An earlier workshop paper or preprint"
+  authors: "Your Name, E. Collaborator"
+  venue: "Workshop @ ICML"
+  year: 2023
+  summary: "Preprints work fine here too — just label the venue accordingly."
+  links:
+    - label: "arXiv"
+      url: "#"

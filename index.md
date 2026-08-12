@@ -1,37 +1,37 @@
-## Welcome to GitHub Pages
+---
+layout: default
+title: About
+permalink: /
+description: Personal website of Your Name — researcher in [your field].
+---
 
-You can use the [editor on GitHub](https://github.com/mgsprietsma/mgsprietsma.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+<section class="hero">
+  <p class="eyebrow">PhD Candidate · [Your Department]</p>
+  <h1 class="hero-name">Your Name</h1>
+  <p class="hero-line">I study [the one thing you want to be known for].</p>
+</section>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<section class="bio">
 
-### Markdown
+<!-- Optional headshot: drop a photo at assets/portrait.jpg and uncomment the next line -->
+<!-- <img class="portrait" src="{{ '/assets/portrait.jpg' | relative_url }}" alt="Portrait of Your Name"> -->
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+I'm a researcher at [University / Lab], where I work on [short description of your
+research area]. My work focuses on [problem you care about] and [approach or method].
 
-```markdown
-Syntax highlighted code block
+Before this, I [previous role, degree, or notable background]. I'm broadly interested
+in [interest one], [interest two], and [interest three].
 
-# Header 1
-## Header 2
-### Header 3
+## Now
 
-- Bulleted
-- List
+I'm currently working on [current project or question]. If you'd like to collaborate
+or chat, feel free to reach out.
 
-1. Numbered
-2. List
+<ul class="links-inline">
+  <li><a href="mailto:you@university.edu">Email</a></li>
+  <li><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></li>
+  <li><a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a></li>
+  <li><a href="https://x.com/yourusername" target="_blank" rel="noopener">Twitter</a></li>
+</ul>
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mgsprietsma/mgsprietsma.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+</section>
