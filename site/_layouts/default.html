@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>{% if page.title and page.url != '/' %}{{ page.title }} – {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav class="site-nav" aria-label="Primary">
+        {% for item in site.data.navigation %}
+          {% assign is_current = false %}
+          {% if item.url == '/' %}
+            {% if page.url == '/' or page.url == '/index.html' %}{% assign is_current = true %}{% endif %}
+          {% elsif page.url contains item.url %}
+            {% assign is_current = true %}
+          {% endif %}
+          <a href="{{ item.url | relative_url }}"{% if is_current %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
+
+  {% comment %} Banner image: only shown once the file actually exists in the repo. {% endcomment %}
+  {% unless page.hero == 'none' %}
+    {% assign hero = page.header_image | default: site.header_image %}
+    {% assign hero_file = site.static_files | where: "path", hero | first %}
+    {% if hero_file %}
+      {% assign hero_alt = page.header_image_alt | default: site.header_image_alt %}
+      {% assign hero_pos = page.header_image_position | default: site.header_image_position | default: 'center' %}
+      {% assign hero_credit = page.header_image_credit | default: site.header_image_credit %}
+      <figure class="hero{% if page.hero == 'large' %} hero--large{% endif %}">
+        <img src="{{ hero | relative_url }}" alt="{{ hero_alt }}" style="object-position: {{ hero_pos }};">
+        {% if hero_credit and hero_credit != '' %}
+          <figcaption class="wrap">{{ hero_credit }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+  {% endunless %}
+
+  <main id="content" class="wrap main{% if page.wide %} main--wide{% endif %}">
+    {% if page.url != '/' and page.title %}
+      <h1 class="page-title">{{ page.title }}</h1>
+    {% endif %}
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© {{ 'now' | date: '%Y' }} {{ site.title }}</p>
+      {% if site.links %}
+        <ul class="link-list">
+          {% for link in site.links %}
+            <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  </footer>
+</body>
+</html>

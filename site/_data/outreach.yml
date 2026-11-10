@@ -1,0 +1,10 @@
+# One entry per talk, event, article, or program. Newest first.
+# Required: title, date. Everything else is optional.
+#
+# Replace the example below with your own entries.
+
+- title: "Name of a public talk or event"
+  date: "Spring 2026"
+  place: "Venue or organization"
+  description: "One or two sentences about what you did and who it was for."
+  url: ""

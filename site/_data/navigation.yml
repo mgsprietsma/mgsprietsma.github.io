@@ -1,0 +1,12 @@
+# The tabs in the header, in order. To add a tab, create the page
+# (with a matching permalink) and add an entry here.
+- title: About
+  url: /
+- title: Research
+  url: /research/
+- title: Publications
+  url: /publications/
+- title: Outreach
+  url: /outreach/
+- title: CV
+  url: /cv/

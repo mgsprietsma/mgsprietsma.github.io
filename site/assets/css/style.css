@@ -1,0 +1,331 @@
+/* ------------------------------------------------------------
+   Colors and type. Change these to restyle the whole site.
+   ------------------------------------------------------------ */
+:root {
+  --bg: #000000;
+  --text: #f2f2f2;      /* main text and headings */
+  --muted: #a6a6a6;     /* secondary text */
+  --faint: #6e6e6e;     /* captions, small details */
+  --rule: #262626;      /* dividers */
+
+  /* Avenir where the visitor has it (Mac, iPhone),
+     Nunito Sans (a close match) everywhere else. */
+  --font: "Avenir Next", "Avenir", "Nunito Sans", "Segoe UI", system-ui, sans-serif;
+
+  --measure: 40rem;     /* width of reading text */
+  --wide: 66rem;        /* width of header, footer, CV page */
+
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--faint);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+a:hover { text-decoration-color: var(--text); }
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection { background: var(--text); color: var(--bg); }
+
+.wrap {
+  width: min(100% - 3rem, var(--wide));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--text);
+  color: var(--bg);
+  z-index: 10;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ---------- Header ---------- */
+.bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  padding: 1.5rem 0;
+}
+
+.brand {
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.6rem;
+  font-size: 0.98rem;
+}
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding-block: 0.15rem;
+}
+.site-nav a:hover { color: var(--text); }
+.site-nav a[aria-current="page"] {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text);
+}
+
+/* ---------- Banner image ---------- */
+.hero { margin: 0; }
+
+.hero img {
+  width: 100%;
+  height: clamp(11rem, 28vh, 18rem);
+  object-fit: cover;
+}
+
+.hero--large img {
+  height: clamp(18rem, 64vh, 44rem);
+}
+
+.hero figcaption {
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--faint);
+  text-align: right;
+}
+
+/* ---------- Main content ---------- */
+.main {
+  flex: 1;
+  width: min(100% - 3rem, var(--measure));
+  padding: 3.5rem 0 2rem;
+}
+.main--wide { width: min(100% - 3rem, var(--wide)); }
+
+.page-title {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.75rem;
+}
+
+h2, h3 { line-height: 1.25; }
+h2 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin: 3rem 0 0.75rem;
+}
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 2rem 0 0.5rem;
+}
+
+p, ul, ol { margin: 0 0 1.15rem; }
+ul, ol { padding-left: 1.25rem; }
+li + li { margin-top: 0.35rem; }
+
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+.lede {
+  font-size: clamp(1.2rem, 2.4vw, 1.4rem);
+  line-height: 1.5;
+  color: var(--muted);
+  margin-bottom: 2.25rem;
+}
+
+.muted { color: var(--muted); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: 3rem 0;
+}
+
+/* Figures inside pages */
+.figure { margin: 2.25rem 0; }
+.figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--faint);
+}
+
+/* ---------- Landing page ---------- */
+.intro { margin-bottom: 2.5rem; }
+
+.display {
+  font-size: clamp(2.75rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.25rem;
+}
+
+.intro .lede { margin-bottom: 0; }
+
+/* Inline list of links (landing page and footer) */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+}
+.link-list li + li { margin-top: 0; }
+.link-list--intro { margin-top: 2rem; }
+
+/* ---------- Publications ---------- */
+.pub-year {
+  border-top: 1px solid var(--rule);
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+}
+.pub-year h2 {
+  margin: 0 0 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.pubs { list-style: none; padding: 0; margin: 0; }
+.pub { margin: 0 0 1.75rem; }
+.pubs .pub + .pub { margin-top: 0; }
+.pub p { margin: 0; }
+
+.pub-title { font-weight: 600; line-height: 1.4; }
+.pub-title a { text-decoration-color: var(--rule); }
+.pub-title a:hover { text-decoration-color: var(--text); }
+
+.pub-authors { color: var(--muted); font-size: 1rem; margin-top: 0.2rem; }
+.pub-authors strong { color: var(--text); }
+
+.pub-meta { color: var(--muted); font-size: 1rem; }
+.pub-note { color: var(--faint); margin-left: 0.6rem; }
+
+.pub-links {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0;
+  display: flex;
+  gap: 1.1rem;
+  font-size: 0.92rem;
+}
+.pub-links li + li { margin-top: 0; }
+
+/* ---------- Outreach ---------- */
+.entries { list-style: none; padding: 0; margin: 0; }
+
+.entry {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: 0.25rem 1.75rem;
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 0;
+}
+.entries .entry + .entry { margin-top: 0; }
+
+.entry-date {
+  color: var(--faint);
+  font-size: 0.95rem;
+  margin: 0.15rem 0 0;
+}
+.entry-title {
+  font-size: 1.15rem;
+  margin: 0 0 0.2rem;
+}
+.entry-place { color: var(--muted); font-size: 1rem; margin-bottom: 0.5rem; }
+.entry-body p:last-child { margin-bottom: 0; }
+
+/* ---------- CV ---------- */
+.cv-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.6rem 1.15rem;
+  border: 1px solid var(--muted);
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 0.98rem;
+}
+.button:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+.cv-embed {
+  display: block;
+  width: 100%;
+  height: 85vh;
+  border: 1px solid var(--rule);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 4rem;
+  color: var(--faint);
+  font-size: 0.92rem;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  padding: 1.75rem 0 2.25rem;
+}
+.footer-inner p { margin: 0; }
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--text); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 40rem) {
+  body { font-size: 1.0625rem; }
+  .main { padding-top: 2.5rem; }
+  .entry { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

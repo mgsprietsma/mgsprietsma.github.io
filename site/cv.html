@@ -1,0 +1,20 @@
+---
+layout: default
+title: CV
+permalink: /cv/
+wide: true
+---
+
+{% assign cv_file = site.static_files | where: "path", site.cv_pdf | first %}
+{% if cv_file %}
+<div class="cv-actions">
+  <a class="button" href="{{ site.cv_pdf | relative_url }}" download>Download CV (PDF)</a>
+  {% if site.cv_updated %}<span class="muted">Updated {{ site.cv_updated }}</span>{% endif %}
+</div>
+
+<object class="cv-embed" data="{{ site.cv_pdf | relative_url }}" type="application/pdf" aria-label="CV">
+  <p>Your browser can't display the PDF here. <a href="{{ site.cv_pdf | relative_url }}">Open the CV</a> instead.</p>
+</object>
+{% else %}
+<p class="muted">The CV will be posted here soon.</p>
+{% endif %}

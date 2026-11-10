@@ -1,0 +1,17 @@
+# One entry per paper. Newest year is shown first.
+# Required: title, authors, year. Everything else is optional.
+# Write the year as a plain number (2026, not "2026").
+#
+# Replace the example below with your own papers.
+
+- title: "Title of your paper goes here"
+  authors: "Lastname, M., Coauthor, A., & Coauthor, B."
+  journal: "The Astrophysical Journal"
+  volume: "000"
+  pages: "000"
+  year: 2026
+  url: ""            # link the title to this (journal page or ADS)
+  arxiv: ""          # just the ID, e.g. 2601.01234
+  doi: ""            # just the DOI, e.g. 10.3847/1538-4357/xxxxx
+  ads: ""            # full ADS URL
+  note: ""           # optional, e.g. "Submitted" or "First author"

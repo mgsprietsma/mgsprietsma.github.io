@@ -1,0 +1,50 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+---
+
+{% comment %}
+  This page is built from _data/publications.yml.
+  Add your papers there; you don't need to edit this file.
+{% endcomment %}
+
+{% assign ads = site.links | where: "label", "NASA ADS" | first %}
+{% if ads %}
+<p class="muted">A complete, up-to-date list is on <a href="{{ ads.url }}">NASA ADS</a>.</p>
+{% endif %}
+
+{% assign me = "<strong>" | append: site.author_name | append: "</strong>" %}
+{% assign pubs = site.data.publications | sort: "year" | reverse %}
+{% assign years = pubs | group_by: "year" %}
+
+{% for group in years %}
+<section class="pub-year">
+  <h2>{{ group.name }}</h2>
+  <ul class="pubs">
+    {% for pub in group.items %}
+    <li class="pub">
+      <p class="pub-title">
+        {% if pub.url and pub.url != '' %}<a href="{{ pub.url }}">{{ pub.title }}</a>{% else %}{{ pub.title }}{% endif %}
+      </p>
+      <p class="pub-authors">{% if site.author_name %}{{ pub.authors | replace: site.author_name, me }}{% else %}{{ pub.authors }}{% endif %}</p>
+      <p class="pub-meta">
+        {% if pub.journal and pub.journal != '' %}<em>{{ pub.journal }}</em>{% if pub.volume and pub.volume != '' %}, {{ pub.volume }}{% endif %}{% if pub.pages and pub.pages != '' %}, {{ pub.pages }}{% endif %}{% endif %}
+        {% if pub.note and pub.note != '' %}<span class="pub-note">{{ pub.note }}</span>{% endif %}
+      </p>
+      {% assign has_links = false %}
+      {% if pub.arxiv and pub.arxiv != '' %}{% assign has_links = true %}{% endif %}
+      {% if pub.doi and pub.doi != '' %}{% assign has_links = true %}{% endif %}
+      {% if pub.ads and pub.ads != '' %}{% assign has_links = true %}{% endif %}
+      {% if has_links %}
+      <ul class="pub-links">
+        {% if pub.arxiv and pub.arxiv != '' %}<li><a href="https://arxiv.org/abs/{{ pub.arxiv }}">arXiv</a></li>{% endif %}
+        {% if pub.doi and pub.doi != '' %}<li><a href="https://doi.org/{{ pub.doi }}">DOI</a></li>{% endif %}
+        {% if pub.ads and pub.ads != '' %}<li><a href="{{ pub.ads }}">ADS</a></li>{% endif %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
