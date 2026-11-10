@@ -1,0 +1,27 @@
+---
+layout: default
+title: Outreach
+permalink: /outreach/
+---
+
+<p class="lede">[A sentence or two about why outreach matters to you and the kinds of things you do.]</p>
+
+{% comment %}
+  The list below is built from _data/outreach.yml.
+  Add entries there; you don't need to edit this part.
+{% endcomment %}
+
+{% if site.data.outreach %}
+<ul class="entries">
+  {% for item in site.data.outreach %}
+  <li class="entry">
+    <p class="entry-date">{{ item.date }}</p>
+    <div class="entry-body">
+      <h2 class="entry-title">{% if item.url and item.url != '' %}<a href="{{ item.url }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</h2>
+      {% if item.place and item.place != '' %}<p class="entry-place">{{ item.place }}</p>{% endif %}
+      {% if item.description and item.description != '' %}<p>{{ item.description }}</p>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
